@@ -9,15 +9,17 @@ use App\Http\Resources\Testimonial as TestimonialResource;
 use App\Http\Resources\Work as WorkResource;
 use App\Http\Resources\Job as JobResource;
 use App\Http\Resources\Team as TeamResource;
-use App\Http\Resources\HomeSlider as HomeSliderResource;
+use App\Http\Resources\Homeslider as HomesliderResource;
 use App\Http\Resources\Service as ServiceResource;
 use App\Http\Resources\Technology as TechnologyResource;
+use App\Http\Resources\Timeline as TimelineResource;
 use App\Work;
 use App\Job;
 use App\Team;
-use App\HomeSlider;
+use App\Homeslider;
 use App\Service;
 use App\Technology;
+use App\Timeline;
 
 class PagesController extends Controller
 {
@@ -25,25 +27,9 @@ class PagesController extends Controller
   public function home()
   {
     $data = array(
+      // Use voyager page block 
+      // https://github.com/pvtl/voyager-page-blocks
       'page' => 'home',
-      // 'homeBaner_data' => array(
-      //   array(
-      //     'banner_img' => 'banner-slide1.jpg',
-      //     'banner_subheading' => 'Let’s get ',
-      //     'banner_heading' => 'started together',
-      //     'banner_description' => 'Ecommerce shop, Wordpress, Landing pages Email \n templates, Hubspot, Shopify, Laravel...',
-      //     'create_button' => 'Let’s  Create Your Website',
-      //     'take_a_look' => 'Take a look over our work'
-      //   ),
-      //   array(
-      //     'banner_img' => 'banner-slide1.jpg',
-      //     'banner_subheading' => 'Let’s get dobara ',
-      //     'banner_heading' => 'started sdf',
-      //     'banner_description' => 'Ecommerce shop, Wordpress, Landing pages Email templates,',
-      //     'create_button' => 'Let’s  Your Website',
-      //     'take_a_look' => 'Take a look over ou',
-      //   )
-      // ),
       'homeAbout_data' => array(
         'imgMain' => 'about-image-home.jpg',
         'heading' => 'SWAP Development Pvt Ltd',
@@ -55,122 +41,9 @@ class PagesController extends Controller
         'btnGetTouchText' => 'Get in touch',
         'btnGetTouchUrl' => 'https://www.google.com/',
       ),
-      // "service_data" => array(
-      //   array(
-      //     'services_number' => '01',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '02',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '03',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '04',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '04',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '04',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'services_number' => '04',
-      //     'services_subheading' => 'Website Design & Rebranding',
-      //     'service_img' => 'service1.jpg',
-      //     'service_head' => 'Online Ecommerce Solutions',
-      //     'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-      //     'service_url_text' => 'Read More',
-      //     'service_url' => 'https://google.com/',
-      //   ),
-      // ),
+      
       'technologies_data' => array(
-        // 'tech_images' => array(
-        //   array(
-        //     'image' => 'technology1.png',
-        //     'alt_tag' => 'react',
-        //   ),
-        //   array(
-        //     'image' => 'technology2.png',
-        //     'alt_tag' => 'Adobe Photoshop',
-        //   ),
-        //   array(
-        //     'image' => 'technology3.png',
-        //     'alt_tag' => 'Adobe illustrator',
-        //   ),
-        //   array(
-        //     'image' => 'technology4.png',
-        //     'alt_tag' => 'Node js',
-        //   ),
-        //   array(
-        //     'image' => 'technology5.png',
-        //     'alt_tag' => 'Shopify',
-        //   ),
-        //   array(
-        //     'image' => 'technology6.png',
-        //     'alt_tag' => 'Laravel',
-        //   ),
-        //   array(
-        //     'image' => 'technology7.png',
-        //     'alt_tag' => 'Magento',
-        //   ),
-        //   array(
-        //     'image' => 'technology8.png',
-        //     'alt_tag' => 'Php',
-        //   ),
-        //   array(
-        //     'image' => 'technology9.png',
-        //     'alt_tag' => 'Angular js',
-        //   ),
-        //   array(
-        //     'image' => 'technology10.png',
-        //     'alt_tag' => 'Hubspot',
-        //   ),
-        //   array(
-        //     'image' => 'technology11.png',
-        //     'alt_tag' => 'Vue Js',
-        //   ),
-        //   array(
-        //     'image' => 'technology12.png',
-        //     'alt_tag' => 'Elementor Wordpress',
-        //   )
-        // ),
+       
         'tech_content' => array(
           'heading' => 'Technologis we are working with',
           'text' => 'We are passnate about new learning so we are not just single technologes based. We believe to keep our skils up to date and we welome our clients choice of technologies.',
@@ -218,69 +91,9 @@ class PagesController extends Controller
           'subHeading' => 'Our lovely clients so far',
           'viewbtn' => 'View All Work',
         ),
-        // 'slider_data' => array(
-        //     array(
-        //         'portfolio_img' => 'portfolio1.jpg',
-        //         'brandcard' => 'Business Card Design',
-        //         'brandcard_url' => 'https://google.com/',
-        //         'barnding' => 'Branding',
-        //         'branding_url' => 'https://google.com/',
-        //         'business_title' => 'Business Card',
-        //         'business_dev' => 'Swapdevelopment, 28th Jan, 2020',
-        //         'business_like' => 'Like',
-        //     ),
-        //     array(
-        //         'portfolio_img' => 'portfolio1.jpg',
-        //         'brandcard' => 'Business Card Design',
-        //         'brandcard_url' => 'https://google.com/',
-        //         'barnding' => 'Branding',
-        //         'branding_url' => 'https://google.com/',
-        //         'business_title' => 'Business Card',
-        //         'business_dev' => 'Swapdevelopment, 28th Jan, 2020',
-        //         'business_like' => 'Like',
-        //     ),
-        //     array(
-        //         'portfolio_img' => 'portfolio1.jpg',
-        //         'brandcard' => 'Business Card Design',
-        //         'brandcard_url' => 'https://google.com/',
-        //         'barnding' => 'Branding',
-        //         'branding_url' => 'https://google.com/',
-        //         'business_title' => 'Business Card',
-        //         'business_dev' => 'Swapdevelopment, 28th Jan, 2020',
-        //         'business_like' => 'Like',
-        //     ),
-        //     array(
-        //         'portfolio_img' => 'portfolio1.jpg',
-        //         'brandcard' => 'Business Card Design',
-        //         'brandcard_url' => 'https://google.com/',
-        //         'barnding' => 'Branding',
-        //         'branding_url' => 'https://google.com/',
-        //         'business_title' => 'Business Card',
-        //         'business_dev' => 'Swapdevelopment, 28th Jan, 2020',
-        //         'business_like' => 'Like',
-        //     ),
-        // ),
+      
       ),
-      // 'testimonial_data' => array(
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     )
-      // )
+    
     );
     $data['homeBaner_data'] = HomesliderResource::collection(Homeslider::all());
     $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
@@ -295,70 +108,76 @@ class PagesController extends Controller
      * About Us Page
      * */
 
-  public function about()
-  {
-    $data = array(
+    public function about(){
+      $data = array(
       'page' => 'about',
       'page_heading' => 'About Us',
-      'technologies_data' => array(
-        'tech_images' => array(
-          array(
-            'image' => 'technology1.png',
-            'alt_tag' => 'react',
-          ),
-          array(
-            'image' => 'technology2.png',
-            'alt_tag' => 'Adobe Photoshop',
-          ),
-          array(
-            'image' => 'technology3.png',
-            'alt_tag' => 'Adobe illustrator',
-          ),
-          array(
-            'image' => 'technology4.png',
-            'alt_tag' => 'Node js',
-          ),
-          array(
-            'image' => 'technology5.png',
-            'alt_tag' => 'Shopify',
-          ),
-          array(
-            'image' => 'technology6.png',
-            'alt_tag' => 'Laravel',
-          ),
-          array(
-            'image' => 'technology7.png',
-            'alt_tag' => 'Magento',
-          ),
-          array(
-            'image' => 'technology8.png',
-            'alt_tag' => 'Php',
-          ),
-          array(
-            'image' => 'technology9.png',
-            'alt_tag' => 'Angular js',
-          ),
-          array(
-            'image' => 'technology10.png',
-            'alt_tag' => 'Hubspot',
-          ),
-          array(
-            'image' => 'technology11.png',
-            'alt_tag' => 'Vue Js',
-          ),
-          array(
-            'image' => 'technology12.png',
-            'alt_tag' => 'Elementor Wordpress',
-          )
+      'page_SubHeading' => 'A group of creative and innovative peoples. We are dedicated taward our goals. We believe to deliver quality work not believe on numers only.',
+      'page_Text' => 'Elementor become a super tool / plugin for wordpress to create website in very less time and efforts. Its has more paid elements which are really amazing and super easy to use, Just drop and drag. Its save a lot of time for the developer as well as for designer. Elementor also having powerful inbduilt elements.',
+
+      'about_Sec' => array(
+          'image' => 'about_img.jpg',
+          'heading' => 'Checkout a small video of our office work environment. It might help you to know more about our crew.',
+          'text' => 'We would love to speak about your upcoming project and more. Let get get started',
+          'btn_Text' => 'Let’t talk!',
+          'btn_Url' => 'https://google.com/',
+      ),
+      'history_data' => array(
+        'start' => 'Start',
+        'infinte' => 'Many More to go :)',
+        'btn'=>'Get in Touch with Us',
+        'btnUrl'=> 'https://google.com/',
+      ),
+      'vision_data' => array(
+        'vision_details' => array(
+          'heading' => 'Our vision to be deliver something unique, or something that worth and useful',
+          'description'=> 'Our snerio is to work on the solutions of the problems. So we love to develop either its yours idea or its ours. We work with same dedication and quality. So we cannot say we can make your life easy but yes we can create someting together which can make ours life better.',
+          'description2'=> 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. We want do not want to earn the money only we want a life time relationship by delivery things as per expectation.',
+          'alternate_text'=> 'So we are ready to grab the opportunity and ready to face the challenges no mater what is it, what it can be and what it will be',
         ),
-        'tech_content' => array(
+        'vision_counter' => array(
+          array(
+            'value'=>'73',
+            'heading'=>'Current Jobs',
+          ), 
+          array(
+            'value'=>'50',
+            'heading'=>'Team Size',
+          ), 
+          array(
+            'value'=>'1000',
+            'heading'=>'Total Jobs',
+          ), 
+          array(
+            'value'=>'50000',
+            'heading'=>'Total Hours Worked',
+          ),  
+        ),
+        'checkout_Btn'=>'Checkout our Store',
+        'checkout_BtnUrl'=>'https://google.com/',
+        'portfolio_Btn'=>'Portfolio',
+        'portfolio_BtnUrl'=>'https://google.com/',
+      ),
+      'team_data' => array(
+        'heading' => 'Looking Experts for Support only?<br />Already have design?',
+        'description' => 'If you already have design and need HTML / and Integration work we can assist you with that as well.',
+        'heading2' => 'We charge for the support / assistense work @ $10-15 p/h.',
+        'hireBtn' => 'Hire Experts For Assistanse',
+        'hireBtnUrl' => 'https://google.com/',
+        'teamBtn' => 'All team members',
+        'teamBtnUrl' => 'https://google.com/',
+        'moreBtn' => 'Show More',
+      ),
+      'technologies_data' => array(
+       
+        'tech_content' =>array(
           'heading' => 'Technologis we are working with',
           'text' => 'We are passnate about new learning so we are not just single technologes based. We believe to keep our skils up to date and we welome our clients choice of technologies.',
           'subheading' => 'Looking for something else?',
           'btnText' => 'Let Us Know!',
           'btnUrl' => 'https://google.com/',
         ),
-        'tech_alternate' => array(
+        'tech_alternate' =>array(
           'heading' => 'Have an idea? We are here to discuss, we are excited to get started together.',
           'btnText' => 'Share your requirement',
           'btnUrl' => 'https://google.com/',
@@ -366,126 +185,16 @@ class PagesController extends Controller
           'getbtnUrl' => 'https://google.com/',
         )
       ),
-      // 'team_data' => array(
-      //   array(
-      //     'team_name' => 'Shalini Kashyap',
-      //     'team_designation' => 'TL / Webdesigner',
-      //     'team_about' => 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. ',
-      //     'hire_btn' => 'Hire',
-      //     'hire_url' => 'https://google.com/',
-      //     'resume_btn' => 'Resume',
-      //     'resume_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'team_name' => 'Shalini Kashyap',
-      //     'team_designation' => 'TL / Webdesigner',
-      //     'team_about' => 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. ',
-      //     'hire_btn' => 'Hire',
-      //     'hire_url' => 'https://google.com/',
-      //     'resume_btn' => 'Resume',
-      //     'resume_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'team_name' => 'Shalini Kashyap',
-      //     'team_designation' => 'TL / Webdesigner',
-      //     'team_about' => 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. ',
-      //     'hire_btn' => 'Hire',
-      //     'hire_url' => 'https://google.com/',
-      //     'resume_btn' => 'Resume',
-      //     'resume_url' => 'https://google.com/',
-      //   ),
-      //   array(
-      //     'team_name' => 'Shalini Kashyap',
-      //     'team_designation' => 'TL / Webdesigner',
-      //     'team_about' => 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. ',
-      //     'hire_btn' => 'Hire',
-      //     'hire_url' => 'https://google.com/',
-      //     'resume_btn' => 'Resume',
-      //     'resume_url' => 'https://google.com/',
-      //   ),
-      // ),
-      'homeBaner_data' => array(
-        array(
-          'banner_img' => 'banner-slide1.jpg',
-          'banner_subheading' => 'Let’s get ',
-          'banner_heading' => 'started together',
-          'banner_description' => 'Ecommerce shop, Wordpress, Landing pages Email \n templates, Hubspot, Shopify, Laravel...',
-          'create_button' => 'Let’s  Create Your Website',
-          'take_a_look' => 'Take a look over our work'
-        ),
-        array(
-          'banner_img' => 'banner-slide1.jpg',
-          'banner_subheading' => 'Let’s get dobara ',
-          'banner_heading' => 'started sdf',
-          'banner_description' => 'Ecommerce shop, Wordpress, Landing pages Email templates,',
-          'create_button' => 'Let’s  Your Website',
-          'take_a_look' => 'Take a look over ou',
-        )
-      ),
-      "service_data" => array(
-        array(
-          'services_number' => '01',
-          'services_subheading' => 'Website Design & Rebranding',
-          'service_img' => 'service1.jpg',
-          'service_head' => 'Online Ecommerce Solutions',
-          'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-          'service_url_text' => 'Read More',
-          'service_url' => 'https://google.com/',
-        ),
-        array(
-          'services_number' => '01',
-          'services_subheading' => 'Website Design & Rebranding',
-          'service_img' => 'service1.jpg',
-          'service_head' => 'Online Ecommerce Solutions',
-          'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-          'service_url_text' => 'Read More',
-          'service_url' => 'https://google.com/',
-        ),
-        array(
-          'services_number' => '01',
-          'services_subheading' => 'Website Design & Rebranding',
-          'service_img' => 'service1.jpg',
-          'service_head' => 'Online Ecommerce Solutions',
-          'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-          'service_url_text' => 'Read More',
-          'service_url' => 'https://google.com/',
-        ),
-        array(
-          'services_number' => '01',
-          'services_subheading' => 'Website Design & Rebranding',
-          'service_img' => 'service1.jpg',
-          'service_head' => 'Online Ecommerce Solutions',
-          'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
-          'service_url_text' => 'Read More',
-          'service_url' => 'https://google.com/',
-        ),
-      ),
-      // 'testimonial_data' => array(
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     )
-      // )
+    
     );
+
     $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
-    $data['team_data'] = TeamResource::collection(Team::all());
-    $data = array_merge($data, $this->globalDetails());
-    return response()->json($data);
-  }
+    $data['technologies_data']['tech_images'] = TechnologyResource::collection(Technology::all());
+    $data['team_data']['team_member']=TeamResource::collection(Team::all());
+    $data['history_data']['history_slider']=TimelineResource::collection(Timeline::orderBy('year', 'ASC')->get());
+      $data = array_merge($data, $this->globalDetails());
+      return response()->json($data);
+    }
 
   /*     * *
      * Portfolio Page
@@ -551,26 +260,6 @@ class PagesController extends Controller
           'service_url' => 'https://google.com/',
         ),
       ),
-      // 'testimonial_data' => array(
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     ),
-      //     array(
-      //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
-      //         'testimonial_img' => 'user.jpg',
-      //         'testimonial_user' => 'Jack Ikard',
-      //         'testimonial_designation' => 'Founder at AquaSprouts LLC'
-      //     )
-      // )
     );
     $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
     $data = array_merge($data, $this->globalDetails());

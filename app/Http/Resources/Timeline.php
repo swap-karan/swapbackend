@@ -20,6 +20,7 @@ class Timeline extends JsonResource
             'title' => $this->title,
             'year' => $this->year,
             'description' => $this->description,
+            'alternate_text' => $this->sub_description,
         ];
     }
 }

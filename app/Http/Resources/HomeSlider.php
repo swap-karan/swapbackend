@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class HomeSlider extends JsonResource
+class Homeslider extends JsonResource
 {
     /**
      * Transform the resource into an array.

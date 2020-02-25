@@ -18,6 +18,7 @@ class CreateTimelinesTable extends Migration
             $table->string('title');
             $table->string('year');
             $table->longText('description');
+            $table->longText('alternate_text');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', 'API\PagesController@home')->name('home');
+Route::get('/index', 'API\PagesController@home')->name('home');
 Route::get('/about', 'API\PagesController@about')->name('about');
 Route::get('/portfolio', 'API\PagesController@portfolio')->name('portfolio');
 Route::get('/services', 'API\PagesController@services')->name('services');
