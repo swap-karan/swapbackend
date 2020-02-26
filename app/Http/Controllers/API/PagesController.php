@@ -30,7 +30,7 @@ class PagesController extends Controller
       // Use voyager page block 
       // https://github.com/pvtl/voyager-page-blocks
       'page' => 'home',
-      'homeAbout_data' => array(
+      'homeAbout' => array(
         'imgMain' => 'about-image-home.jpg',
         'heading' => 'SWAP Development Pvt Ltd',
         'subheading' => 'We are not best than other, we are just Unique',
@@ -41,9 +41,9 @@ class PagesController extends Controller
         'btnGetTouchText' => 'Get in touch',
         'btnGetTouchUrl' => 'https://www.google.com/',
       ),
-      
-      'technologies_data' => array(
-       
+
+      'technologies' => array(
+
         'tech_content' => array(
           'heading' => 'Technologis we are working with',
           'text' => 'We are passnate about new learning so we are not just single technologes based. We believe to keep our skils up to date and we welome our clients choice of technologies.',
@@ -59,7 +59,7 @@ class PagesController extends Controller
           'getbtnUrl' => 'https://google.com/',
         )
       ),
-      'counter_data' => array(
+      'counter' => array(
         'counterText' => array(
           'heading' => 'We are ready to take the challenge',
           'text' => 'Is your website look and feel gets bored? Well, give a surprize to you customer by giving a fresh look to you business.',
@@ -85,21 +85,21 @@ class PagesController extends Controller
           ),
         ),
       ),
-      'portfolio_data' => array(
+      'portfolio' => array(
         'topHeading' => array(
           'heading' => 'Our Work',
           'subHeading' => 'Our lovely clients so far',
           'viewbtn' => 'View All Work',
         ),
-      
+
       ),
-    
+
     );
-    $data['homeBaner_data'] = HomesliderResource::collection(Homeslider::all());
-    $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
-    $data['service_data'] = ServiceResource::collection(Service::all());
-    $data['technologies_data']['tech_images'] = TechnologyResource::collection(Technology::all());
-    $data['portfolio_data']['slider_data'] = WorkResource::collection(Work::all());
+    $data['homeBaner'] = HomesliderResource::collection(Homeslider::all());
+    $data['testimonial'] = TestimonialResource::collection(Testimonial::all());
+    $data['services'] = ServiceResource::collection(Service::all());
+    $data['technologies']['tech_images'] = TechnologyResource::collection(Technology::all());
+    $data['portfolio']['slider'] = WorkResource::collection(Work::all());
     $data = array_merge($data, $this->globalDetails());
     return response()->json($data);
   }
@@ -108,57 +108,58 @@ class PagesController extends Controller
      * About Us Page
      * */
 
-    public function about(){
-      $data = array(
+  public function about()
+  {
+    $data = array(
       'page' => 'about',
       'page_heading' => 'About Us',
       'page_SubHeading' => 'A group of creative and innovative peoples. We are dedicated taward our goals. We believe to deliver quality work not believe on numers only.',
       'page_Text' => 'Elementor become a super tool / plugin for wordpress to create website in very less time and efforts. Its has more paid elements which are really amazing and super easy to use, Just drop and drag. Its save a lot of time for the developer as well as for designer. Elementor also having powerful inbduilt elements.',
 
       'about_Sec' => array(
-          'image' => 'about_img.jpg',
-          'heading' => 'Checkout a small video of our office work environment. It might help you to know more about our crew.',
-          'text' => 'We would love to speak about your upcoming project and more. Let get get started',
-          'btn_Text' => 'Let’t talk!',
-          'btn_Url' => 'https://google.com/',
+        'image' => 'about_img.jpg',
+        'heading' => 'Checkout a small video of our office work environment. It might help you to know more about our crew.',
+        'text' => 'We would love to speak about your upcoming project and more. Let get get started',
+        'btn_Text' => 'Let’t talk!',
+        'btn_Url' => 'https://google.com/',
       ),
-      'history_data' => array(
+      'history' => array(
         'start' => 'Start',
         'infinte' => 'Many More to go :)',
-        'btn'=>'Get in Touch with Us',
-        'btnUrl'=> 'https://google.com/',
+        'btn' => 'Get in Touch with Us',
+        'btnUrl' => 'https://google.com/',
       ),
-      'vision_data' => array(
+      'vision' => array(
         'vision_details' => array(
           'heading' => 'Our vision to be deliver something unique, or something that worth and useful',
-          'description'=> 'Our snerio is to work on the solutions of the problems. So we love to develop either its yours idea or its ours. We work with same dedication and quality. So we cannot say we can make your life easy but yes we can create someting together which can make ours life better.',
-          'description2'=> 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. We want do not want to earn the money only we want a life time relationship by delivery things as per expectation.',
-          'alternate_text'=> 'So we are ready to grab the opportunity and ready to face the challenges no mater what is it, what it can be and what it will be',
+          'description' => 'Our snerio is to work on the solutions of the problems. So we love to develop either its yours idea or its ours. We work with same dedication and quality. So we cannot say we can make your life easy but yes we can create someting together which can make ours life better.',
+          'description2' => 'Apart from that we are looking for partner agency who’s aim and vision is quit similar to us. We want do not want to earn the money only we want a life time relationship by delivery things as per expectation.',
+          'alternate_text' => 'So we are ready to grab the opportunity and ready to face the challenges no mater what is it, what it can be and what it will be',
         ),
         'vision_counter' => array(
           array(
-            'value'=>'73',
-            'heading'=>'Current Jobs',
-          ), 
+            'value' => '73',
+            'heading' => 'Current Jobs',
+          ),
           array(
-            'value'=>'50',
-            'heading'=>'Team Size',
-          ), 
+            'value' => '50',
+            'heading' => 'Team Size',
+          ),
           array(
-            'value'=>'1000',
-            'heading'=>'Total Jobs',
-          ), 
+            'value' => '1000',
+            'heading' => 'Total Jobs',
+          ),
           array(
-            'value'=>'50000',
-            'heading'=>'Total Hours Worked',
-          ),  
+            'value' => '50000',
+            'heading' => 'Total Hours Worked',
+          ),
         ),
-        'checkout_Btn'=>'Checkout our Store',
-        'checkout_BtnUrl'=>'https://google.com/',
-        'portfolio_Btn'=>'Portfolio',
-        'portfolio_BtnUrl'=>'https://google.com/',
+        'checkout_Btn' => 'Checkout our Store',
+        'checkout_BtnUrl' => 'https://google.com/',
+        'portfolio_Btn' => 'Portfolio',
+        'portfolio_BtnUrl' => 'https://google.com/',
       ),
-      'team_data' => array(
+      'team' => array(
         'heading' => 'Looking Experts for Support only?<br />Already have design?',
         'description' => 'If you already have design and need HTML / and Integration work we can assist you with that as well.',
         'heading2' => 'We charge for the support / assistense work @ $10-15 p/h.',
@@ -168,16 +169,16 @@ class PagesController extends Controller
         'teamBtnUrl' => 'https://google.com/',
         'moreBtn' => 'Show More',
       ),
-      'technologies_data' => array(
-       
-        'tech_content' =>array(
+      'technologies' => array(
+
+        'tech_content' => array(
           'heading' => 'Technologis we are working with',
           'text' => 'We are passnate about new learning so we are not just single technologes based. We believe to keep our skils up to date and we welome our clients choice of technologies.',
           'subheading' => 'Looking for something else?',
           'btnText' => 'Let Us Know!',
           'btnUrl' => 'https://google.com/',
         ),
-        'tech_alternate' =>array(
+        'tech_alternate' => array(
           'heading' => 'Have an idea? We are here to discuss, we are excited to get started together.',
           'btnText' => 'Share your requirement',
           'btnUrl' => 'https://google.com/',
@@ -185,16 +186,16 @@ class PagesController extends Controller
           'getbtnUrl' => 'https://google.com/',
         )
       ),
-    
+
     );
 
-    $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
-    $data['technologies_data']['tech_images'] = TechnologyResource::collection(Technology::all());
-    $data['team_data']['team_member']=TeamResource::collection(Team::all());
-    $data['history_data']['history_slider']=TimelineResource::collection(Timeline::orderBy('year', 'ASC')->get());
-      $data = array_merge($data, $this->globalDetails());
-      return response()->json($data);
-    }
+    $data['testimonial'] = TestimonialResource::collection(Testimonial::all());
+    $data['technologies']['tech_images'] = TechnologyResource::collection(Technology::all());
+    $data['team']['team_member'] = TeamResource::collection(Team::all());
+    $data['history']['history_slider'] = TimelineResource::collection(Timeline::orderBy('year', 'ASC')->get());
+    $data = array_merge($data, $this->globalDetails());
+    return response()->json($data);
+  }
 
   /*     * *
      * Portfolio Page
@@ -204,7 +205,7 @@ class PagesController extends Controller
   {
     $data = array(
       'page' => 'portfolio',
-      'homeBaner_data' => array(
+      'homeBaner' => array(
         array(
           'banner_img' => 'banner-slide1.jpg',
           'banner_subheading' => 'Let’s get ',
@@ -222,7 +223,7 @@ class PagesController extends Controller
           'take_a_look' => 'Take a look over ou',
         )
       ),
-      "service_data" => array(
+      "services" => array(
         array(
           'services_number' => '01',
           'services_subheading' => 'Website Design & Rebranding',
@@ -261,7 +262,7 @@ class PagesController extends Controller
         ),
       ),
     );
-    $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
+    $data['testimonial'] = TestimonialResource::collection(Testimonial::all());
     $data = array_merge($data, $this->globalDetails());
     return response()->json($data);
   }
@@ -274,7 +275,7 @@ class PagesController extends Controller
   {
     $data = array(
       'page' => 'services',
-      'homeBaner_data' => array(
+      'homeBaner' => array(
         array(
           'banner_img' => 'banner-slide1.jpg',
           'banner_subheading' => 'Let’s get ',
@@ -292,7 +293,7 @@ class PagesController extends Controller
           'take_a_look' => 'Take a look over ou',
         )
       ),
-      "service_data" => array(
+      "services" => array(
         array(
           'services_number' => '01',
           'services_subheading' => 'Website Design & Rebranding',
@@ -330,7 +331,7 @@ class PagesController extends Controller
           'service_url' => 'https://google.com/',
         ),
       ),
-      // 'testimonial_data' => array(
+      // 'testimonial' => array(
       //     array(
       //         'testimonial_text' => 'Swap Development has become an asset to our team. They are website experts! They can do anything you need. From custom coding to learning new platforms, they are experts! We are so happy to find a company like Swap…. We are not ending contract, just moving some things around. Thanks again for everything your teams does!',
       //         'testimonial_img' => 'user.jpg',
@@ -351,7 +352,7 @@ class PagesController extends Controller
       //     )
       // )
     );
-    $data['testimonial_data'] = TestimonialResource::collection(Testimonial::all());
+    $data['testimonial'] = TestimonialResource::collection(Testimonial::all());
     $data = array_merge($data, $this->globalDetails());
     return response()->json($data);
   }
@@ -387,10 +388,28 @@ class PagesController extends Controller
         ),
         array(
           'text' => 'Portfolio',
-          'url' => '/portfolio'
+          'url' => '/wordpress',
+          'submenu' => array(
+            array(
+              'text' => 'Home',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'About Us',
+              'url' => '/about'
+            ),
+            array(
+              'text' => 'Home',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'About Us',
+              'url' => '/about'
+            ),
+          )
         ),
         array(
-          'text' => 'Services',
+          'text' => 'Servicess',
           'url' => '/services'
         ),
       ),
