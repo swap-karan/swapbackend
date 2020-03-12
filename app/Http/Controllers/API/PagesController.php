@@ -366,6 +366,117 @@ class PagesController extends Controller
   }
 
   /*     * *
+     * Wordpress - Elementor Page
+     * */
+
+  public function wordpress()
+  {
+    $data = array(
+      'page' => 'wordpress',
+      'page_heading' => 'Wordpress + Elementor',
+      'page_SubHeading' => 'Website Design, Design Integration using the combination of wordpress + <br />Elementor',
+      'about_Sec' => array(
+      'image' => 'elementor-img.jpg',
+      'image2' => 'elementor-img2.jpg',
+      'image3' => 'elementor-img3.jpg',
+      'heading' => 'We are Experts in Wordpres + <br />Elementor Development.',
+      'text' => 'Elementor become a super tool / plugin for wordpress to create website in very less time and efforts. Its has more paid elements which are really  amazing and super easy to use, Just drop and drag. Its save a lot of time for the developer as well as for designer. Elementor also having powerful inbduilt elements.',
+      'btn_Text' => 'Let’s  Create Your Store',
+      'btn_Url' => 'https://google.com/',
+      'touch_Text' => 'Get in Touch!',
+      'touch_Url' => 'https://google.com/',
+    ),
+      
+    'pageServices' => array(
+      array(
+       'serviceSliderNum' => '01',
+       'serviceSliderTitle' => 'Home Page',
+       'serviceSliderSubtitle' => 'Why Use',
+       'serviceSliderText' => 'Home page is like a basically a main page to tell user what you have, they can buy.',
+       'serviceSliderText2' => 'You can also include featured iteams and newly added items and other sales and offers etc.',
+       'serviceSliderBtnUrl' => 'https://google.com/',
+       'serviceSliderBtn' => 'See Live website links',
+       'serviceSliderImg' => 'lp_services.jpg',
+       'serviceSliderImg2' => 'lp_services2.jpg',
+       'serviceSliderImg3' => 'lp_services3.jpg',
+       'serviceSliderImg4' => 'lp_services4.jpg',
+       'serviceSliderImg_' => 'lp_elementor1.png',
+       'serviceSliderImg2_' => 'lp_elementor1.jpg',
+       'serviceSliderImg3_' => 'lp_elementor3.jpg',
+      ),
+      array(
+       'serviceSliderNum' => '02',
+       'serviceSliderTitle' => 'Home Page',
+       'serviceSliderSubtitle' => 'Why Use',
+       'serviceSliderText' => 'Home page is like a basically a main page to tell user what you have, they can buy.',
+       'serviceSliderText2' => 'You can also include featured iteams and newly added items and other sales and offers etc.',
+       'serviceSliderBtnUrl' => 'https://google.com/',
+       'serviceSliderBtn' => 'See Live website links',
+       'serviceSliderImg' => 'lp_services.jpg',
+       'serviceSliderImg2' => 'lp_services2.jpg',
+       'serviceSliderImg3' => 'lp_services3.jpg',
+       'serviceSliderImg4' => 'lp_services4.jpg',
+       'serviceSliderImg_' => 'lp_elementor1.png',
+       'serviceSliderImg2_' => 'lp_elementor2.jpg',
+       'serviceSliderImg3_' => 'lp_elementor3.jpg',
+      ),
+    ),
+    'our_expert' => array(
+      'heading' => 'Our experties in Wordpress + Elementor',
+      'items' => array(
+        array(
+          'icon' => 'expertise_icon.png',
+          'sub_heading' => 'Design Integration using Elementor',
+          'text' => 'If you already having design ready and looking for HS integration. The we here to do that for you. Otherwise we can do design for you as well.',
+        ),
+        array(
+          'icon' => 'expertise_icon.png',
+          'sub_heading' => 'Design Integration using Elementor',
+          'text' => 'If you already having design ready and looking for HS integration. The we here to do that for you. Otherwise we can do design for you as well.',
+        ),
+        array(
+          'icon' => 'expertise_icon.png',
+          'sub_heading' => 'Design Integration using Elementor',
+          'text' => 'If you already having design ready and looking for HS integration. The we here to do that for you. Otherwise we can do design for you as well.',
+        ),
+      ),
+      'btn_Text' => 'Share Your Requirements',
+      'btn_Url' => 'https://google.com/',
+    ),
+
+    'pricingPerHour' => array(
+      array(
+        'title' => 'Basic Plan',
+        'featured' => true,
+        'priceDown' => '10.',
+        'priceUp' => '15.',
+        'perHour' => 'per/hours',
+        'btn' => 'Get Quotation',
+        'priceFeatures' => array(
+          'Home Page Design + Integration', 'Email Design + Integration', 'Landing apges + Integration', '1-5 pages', 'Elementor’s free version only', 'No paid plugin at our end', 'Limited Support',
+          ),
+        'note' => 'Best for Medium Online Store',
+      ), 
+      array(
+        'title' => 'Gold Plan',
+        'subtitle' => 'Recommanded best services',
+        'featured' => true,
+        'priceDown' => '10.',
+        'priceUp' => '15.',
+        'perHour' => 'per/hours',
+        'btn' => 'Get Quotation',
+        'priceFeatures' => array(
+          '','','','','','','','','','',
+          ),
+        'note' => 'Best for Medium Online Store',
+      ),   
+    ),
+    );
+    $data = array_merge($data, $this->globalDetails());
+    return response()->json($data);
+  }
+
+  /*     * *
      * Portfolio Page
      * */
 
@@ -461,33 +572,67 @@ class PagesController extends Controller
         ),
         array(
           'text' => 'About Us',
-          'url' => '/about'
+          'url' => '/about',
+          'submenu' => array(
+            array(
+              'text' => 'History',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Aim & Vision',
+              'url' => '/about'
+            ),
+            array(
+              'text' => 'Team',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Business Profile',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Career',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Gallery',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Social Activities',
+              'url' => '/'
+            ),
+          ),
         ),
         array(
           'text' => 'Portfolio',
           'url' => '/wordpress',
-          'submenu' => array(
-            array(
-              'text' => 'Home',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'About Us',
-              'url' => '/about'
-            ),
-            array(
-              'text' => 'Home',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'About Us',
-              'url' => '/about'
-            ),
-          )
         ),
         array(
           'text' => 'Servicess',
-          'url' => '/services'
+          'url' => '/services',
+          'submenu' => array(
+            array(
+              'text' => 'Custom Development',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Digital Marketing',
+              'url' => '/about'
+            ),
+            array(
+              'text' => 'Hubspot',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'WebDesign Rebrand',
+              'url' => '/'
+            ),
+            array(
+              'text' => 'Wordpress & Elementor',
+              'url' => '/'
+            ),
+          ),
         ),
       ),
       'footer' => array(
