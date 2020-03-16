@@ -26,3 +26,8 @@ Route::get('/about', 'API\PagesController@about')->name('about');
 Route::get('/portfolio', 'API\PagesController@portfolio')->name('portfolio');
 Route::get('/services', 'API\PagesController@services')->name('services');
 Route::get('/wordpress', 'API\PagesController@wordpress')->name('wordpress');
+Route::get('/hubspot', 'API\PagesController@hubspot')->name('hubspot');
+Route::get('/customDevelopment', 'API\PagesController@customDevelopment')->name('customDevelopment');
+Route::get('/digitalMarketing', 'API\PagesController@digitalMarketing')->name('digitalMarketing');
+Route::get('/webRebrand', 'API\PagesController@webRebrand')->name('webRebrand');
+Route::get('/Career', 'API\PagesController@Career')->name('Career');
