@@ -20,6 +20,7 @@ use App\Homeslider;
 use App\Service;
 use App\Technology;
 use App\Timeline;
+use TCG\Voyager\Models\Menu;
 
 class PagesController extends Controller
 {
@@ -110,6 +111,7 @@ class PagesController extends Controller
 
   public function about()
   {
+    die("Asd");
     $data = array(
       'page' => 'about',
       'page_heading' => 'About Us',
@@ -552,7 +554,27 @@ class PagesController extends Controller
    * @return \Illuminate\Http\Response
    */
   protected function globalDetails()
-  {
+  { 
+    $navigations = Menu::display('site_menu','header-menu');
+//     // dd($navigations);
+//     // $data = $navigations->toArray();
+// //     print_r($navigations);
+// //     foreach($navigations as $object)
+// // {
+// //     $arrays[] = $object->toArray();
+// // }
+// // Dump array with object-arrays
+// dd(json_decode($navigations, true));
+//     // $explode_id = array_map('intval', explode(',', $navigations));
+//     //dump(json_encode($navigations));
+//     // dump(json_decode(json_encode($navigations)),true);
+//    // print_r($navigations);
+//     foreach($navigations as $key=>$navigation){
+// echo     $key ;
+// echo "ASdasd";
+// $navigation->text;
+    // }
+    // dd();
     return array(
       'logo' => 'logo.png',
       'navbar_cta' => array(
@@ -565,76 +587,77 @@ class PagesController extends Controller
         'store_text' => 'Our Store',
         'store_link' => '/store'
       ),
-      'navigation' => array(
-        array(
-          'text' => 'Home',
-          'url' => '/'
-        ),
-        array(
-          'text' => 'About Us',
-          'url' => '/about',
-          'submenu' => array(
-            array(
-              'text' => 'History',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Aim & Vision',
-              'url' => '/about'
-            ),
-            array(
-              'text' => 'Team',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Business Profile',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Career',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Gallery',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Social Activities',
-              'url' => '/'
-            ),
-          ),
-        ),
-        array(
-          'text' => 'Portfolio',
-          'url' => '/wordpress',
-        ),
-        array(
-          'text' => 'Servicess',
-          'url' => '/services',
-          'submenu' => array(
-            array(
-              'text' => 'Custom Development',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Digital Marketing',
-              'url' => '/about'
-            ),
-            array(
-              'text' => 'Hubspot',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'WebDesign Rebrand',
-              'url' => '/'
-            ),
-            array(
-              'text' => 'Wordpress & Elementor',
-              'url' => '/'
-            ),
-          ),
-        ),
-      ),
+      'navigation' => json_decode($navigations, true),
+      // 'navigations' => array(
+      //   array(
+      //     'text' => 'Home',
+      //     'url' => '/'
+      //   ),
+      //   array(
+      //     'text' => 'About Us',
+      //     'url' => '/about',
+      //     'submenu' => array(
+      //       array(
+      //         'text' => 'History',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Aim & Vision',
+      //         'url' => '/about'
+      //       ),
+      //       array(
+      //         'text' => 'Team',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Business Profile',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Career',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Gallery',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Social Activities',
+      //         'url' => '/'
+      //       ),
+      //     ),
+      //   ),
+      //   array(
+      //     'text' => 'Portfolio',
+      //     'url' => '/wordpress',
+      //   ),
+      //   array(
+      //     'text' => 'Servicess',
+      //     'url' => '/services',
+      //     'submenu' => array(
+      //       array(
+      //         'text' => 'Custom Development',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Digital Marketing',
+      //         'url' => '/about'
+      //       ),
+      //       array(
+      //         'text' => 'Hubspot',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'WebDesign Rebrand',
+      //         'url' => '/'
+      //       ),
+      //       array(
+      //         'text' => 'Wordpress & Elementor',
+      //         'url' => '/'
+      //       ),
+      //     ),
+      //   ),
+      // ),
       'footer' => array(
         'start_imgs' => array(
           array(
