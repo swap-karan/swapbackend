@@ -30,4 +30,4 @@ Route::get('/hubspot', 'API\PagesController@hubspot')->name('hubspot');
 Route::get('/customDevelopment', 'API\PagesController@customDevelopment')->name('customDevelopment');
 Route::get('/digitalMarketing', 'API\PagesController@digitalMarketing')->name('digitalMarketing');
 Route::get('/webRebrand', 'API\PagesController@webRebrand')->name('webRebrand');
-Route::get('/Career', 'API\PagesController@Career')->name('Career');
+Route::get('/career', 'API\PagesController@career')->name('career');

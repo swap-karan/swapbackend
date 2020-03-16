@@ -204,7 +204,7 @@ class PagesController extends Controller
      * Career Page
      * */
 
-  public function Career()
+  public function career()
   {
     $data = array(
       'page' => 'Career',
