@@ -111,7 +111,7 @@ class PagesController extends Controller
 
   public function about()
   {
-    die("Asd");
+
     $data = array(
       'page' => 'about',
       'page_heading' => 'About Us',
