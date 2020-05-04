@@ -1357,7 +1357,7 @@ But you have to very cooperative with us and have to provide things which might 
           'services_subheading' => 'Website Design & Rebranding',
           'service_img' => 'service1.jpg',
           'service_head' => 'Online Ecommerce Solutions',
-          'service_desc' => 'Create awesome looking and fast loading webshops and Web Application with us',
+          'service_desc' => 'Create awesome looking looking and fast loading webshops and Web Application with us',
           'service_url_text' => 'Read More',
           'service_url' => 'https://google.com/',
         ),
